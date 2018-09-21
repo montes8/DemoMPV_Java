@@ -4,7 +4,7 @@ public interface LoginInteractor {
 
     interface  OnLoginFinishedListener{
 
-        void onUserError();
+        void onUserNameError();
 
         void onPasswordError();
 
