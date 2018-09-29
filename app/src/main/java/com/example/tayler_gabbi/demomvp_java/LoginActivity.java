@@ -1,17 +1,16 @@
 package com.example.tayler_gabbi.demomvp_java;
 
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.tayler_gabbi.demomvp_java.model.LoginInteractorImpl;
-import com.example.tayler_gabbi.demomvp_java.presenter.LoginPresenter;
+import com.example.tayler_gabbi.demomvp_java.interactor.LoginInteractorImpl;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginPresenter;
 import com.example.tayler_gabbi.demomvp_java.presenter.LoginPresenterImpl;
-import com.example.tayler_gabbi.demomvp_java.view.LoginView;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
 
 public class LoginActivity extends Activity implements LoginView, View.OnClickListener{
 

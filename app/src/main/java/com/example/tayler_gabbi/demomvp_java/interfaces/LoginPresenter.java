@@ -1,4 +1,4 @@
-package com.example.tayler_gabbi.demomvp_java.presenter;
+package com.example.tayler_gabbi.demomvp_java.interfaces;
 
 public interface LoginPresenter {
 

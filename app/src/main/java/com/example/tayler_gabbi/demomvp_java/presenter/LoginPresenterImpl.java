@@ -1,9 +1,11 @@
 package com.example.tayler_gabbi.demomvp_java.presenter;
 
-import com.example.tayler_gabbi.demomvp_java.model.LoginInteractor;
-import com.example.tayler_gabbi.demomvp_java.view.LoginView;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginFinishedListener;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginInteractor;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginPresenter;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
 
-public class LoginPresenterImpl implements LoginPresenter,LoginInteractor.OnLoginFinishedListener {
+public class LoginPresenterImpl implements LoginPresenter,LoginFinishedListener {
 
     private LoginView loginView;
     private LoginInteractor loginInteractor;
