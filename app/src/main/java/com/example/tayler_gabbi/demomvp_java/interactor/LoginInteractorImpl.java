@@ -1,8 +1,12 @@
 package com.example.tayler_gabbi.demomvp_java.interactor;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import com.example.tayler_gabbi.demomvp_java.interfaces.LoginFinishedListener;
 import com.example.tayler_gabbi.demomvp_java.interfaces.LoginInteractor;
@@ -10,6 +14,7 @@ import com.example.tayler_gabbi.demomvp_java.interfaces.LoginInteractor;
 public class LoginInteractorImpl implements LoginInteractor {
     @Override
     public void login(final String userName, final String password, final LoginFinishedListener listener) {
+
 
         new Handler().postDelayed(new Runnable() {
             @Override
