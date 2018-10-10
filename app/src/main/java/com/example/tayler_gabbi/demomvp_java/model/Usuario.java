@@ -9,7 +9,10 @@ public class Usuario {
     private Long idUsu;
 
     private String nombre;
-    private String nombreUsuario;
     private String contrasenia;
-    private String pais;
+
+    public Usuario( String nombre, String contrasenia) {
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+    }
 }

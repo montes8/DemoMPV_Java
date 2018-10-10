@@ -6,5 +6,7 @@ public interface LoginFinishedListener {
 
     void onPasswordError();
 
+    void onUsuarioNull();
+
     void onSuccess();
 }
