@@ -1,6 +1,7 @@
 package com.example.tayler_gabbi.demomvp_java;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -77,7 +78,8 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
     @Override
     public void navigateToHome() {
 
-        Toast.makeText(this,"ingreso",Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
 
     }
 }
