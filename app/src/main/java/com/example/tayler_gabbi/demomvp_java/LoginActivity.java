@@ -76,6 +76,11 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
     }
 
     @Override
+    public void setUsuarioNull() {
+        Toast.makeText(this,"usuario o contraseña invalidos",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void navigateToHome() {
 
         Intent intent = new Intent(this,MainActivity.class);

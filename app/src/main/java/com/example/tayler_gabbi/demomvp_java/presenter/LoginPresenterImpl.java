@@ -1,5 +1,7 @@
 package com.example.tayler_gabbi.demomvp_java.presenter;
 
+import android.widget.Toast;
+
 import com.example.tayler_gabbi.demomvp_java.interfaces.LoginFinishedListener;
 import com.example.tayler_gabbi.demomvp_java.interfaces.LoginInteractor;
 import com.example.tayler_gabbi.demomvp_java.interfaces.LoginPresenter;
@@ -56,7 +58,8 @@ public class LoginPresenterImpl implements LoginPresenter,LoginFinishedListener 
 
     @Override
     public void onUsuarioNull() {
-        
+
+        loginView.setUsuarioNull();
     }
 
     @Override
