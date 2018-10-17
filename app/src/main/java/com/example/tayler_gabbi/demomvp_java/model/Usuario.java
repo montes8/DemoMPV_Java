@@ -15,4 +15,28 @@ public class Usuario {
         this.nombre = nombre;
         this.contrasenia = contrasenia;
     }
+
+    public Long getIdUsu() {
+        return idUsu;
+    }
+
+    public void setIdUsu(Long idUsu) {
+        this.idUsu = idUsu;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
 }
