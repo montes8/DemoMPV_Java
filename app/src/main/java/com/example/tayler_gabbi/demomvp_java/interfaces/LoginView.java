@@ -10,7 +10,5 @@ public interface LoginView {
 
     void setPasswordError();
 
-    void setUsuarioNull();
-
     void navigateToHome();
 }
