@@ -1,7 +1,5 @@
 package com.example.tayler_gabbi.demomvp_java.presenter;
 
-import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
-
 public class LoginPresenterImpl implements LoginPresenter,LoginFinishedListener {
 
     private LoginView loginView;

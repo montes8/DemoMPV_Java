@@ -1,4 +1,4 @@
-package com.example.tayler_gabbi.demomvp_java.model;
+package com.example.tayler_gabbi.demomvp_java.database.model;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;

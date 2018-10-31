@@ -4,7 +4,7 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import com.example.tayler_gabbi.demomvp_java.model.Usuario;
+import com.example.tayler_gabbi.demomvp_java.database.model.Usuario;
 
 import java.util.List;
 

@@ -9,7 +9,6 @@ import android.widget.ProgressBar;
 
 import com.example.tayler_gabbi.demomvp_java.interactor.LoginInteractorImpl;
 import com.example.tayler_gabbi.demomvp_java.presenter.LoginPresenterImpl;
-import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
 
 public class LoginActivity extends Activity implements LoginView, View.OnClickListener{
 
