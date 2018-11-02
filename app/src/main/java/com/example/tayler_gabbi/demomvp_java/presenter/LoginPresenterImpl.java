@@ -1,68 +1,67 @@
 package com.example.tayler_gabbi.demomvp_java.presenter;
 
-public class LoginPresenterImpl implements LoginPresenter,LoginFinishedListener {
+import com.example.tayler_gabbi.demomvp_java.interactores.LoginInteractorImpl;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginInteractor;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginPresenter;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
+import com.example.tayler_gabbi.demomvp_java.interfaces.OnLoginFinishListener;
 
-    private LoginView loginView;
-    private LoginInteractor loginInteractor;
+public class LoginPresenterImpl implements LoginPresenter, OnLoginFinishListener {
 
-    public LoginPresenterImpl(LoginView loginView, LoginInteractor loginInteractor) {
-        this.loginView = loginView;
-        this.loginInteractor = loginInteractor;
+    private LoginView view;
+    private LoginInteractor interactor;
+
+    public LoginPresenterImpl(LoginView view) {
+        this.view = view;
+        interactor = new LoginInteractorImpl();
     }
 
-
     @Override
-    public void validateCredencials(String userName, String password) {
+    public void validateusuario(String user, String pass) {
 
-        if(loginView!=null){
-            loginView.showProgress();
+        if(view != null){
 
+            view.showProgress();
         }
-        loginInteractor.login(userName,password,this);
-    }
-
-    @Override
-    public void onDestroy() {
-
-        loginView = null;
-        //evitar fuga de memoria
+        interactor.validateUser(user,pass,this);
 
     }
 
     @Override
-    public void onUserNameError() {
+    public void userNameError() {
 
-        if(loginView!=null){
-            loginView.setUserNameError();
-            loginView.hideProgress();
-        }
+        if(view != null){
 
-    }
-
-    @Override
-    public void onPasswordError() {
-
-        if(loginView!=null){
-            loginView.setPasswordError();
-            loginView.hideProgress();
+            view.hideProgress();
+            view.setErrorUser();
         }
 
     }
 
     @Override
-    public void onUsuarioNull() {
+    public void passwordError() {
 
-        loginView.setUsuarioNull();
-    }
+        if(view != null){
 
-    @Override
-    public void onSuccess() {
-        if(loginView!=null){
-            loginView.navigateToHome();
-            loginView.hideProgress();
+            view.hideProgress();
+            view.setErrorPassword();
         }
 
     }
 
+    @Override
+    public void usuarioLogin() {
 
+    }
+
+    @Override
+    public void exitOperacion() {
+
+        if(view != null){
+
+            view.hideProgress();
+            view.navigationToHome();
+        }
+
+    }
 }

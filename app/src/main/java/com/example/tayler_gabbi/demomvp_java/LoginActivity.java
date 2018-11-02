@@ -1,46 +1,33 @@
 package com.example.tayler_gabbi.demomvp_java;
 
-import android.app.Activity;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import com.example.tayler_gabbi.demomvp_java.interactor.LoginInteractorImpl;
+import com.example.tayler_gabbi.demomvp_java.R;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginPresenter;
+import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
 import com.example.tayler_gabbi.demomvp_java.presenter.LoginPresenterImpl;
 
-public class LoginActivity extends Activity implements LoginView, View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements LoginView{
 
-    private ProgressBar progressBar;
-    private EditText usuario;
-    private EditText password;
+    EditText editPass,editUser;
+    ProgressBar progressBar;
     private LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        editUser = findViewById(R.id.edit_usuario);
+        editPass = findViewById(R.id.edit_pasword);
         progressBar = findViewById(R.id.progressBar);
-        usuario = findViewById(R.id.edit_usuario);
-        password = findViewById(R.id.edit_pasword);
 
-        findViewById(R.id.button_ingresar).setOnClickListener(this);
-
-        presenter = new LoginPresenterImpl(this,new LoginInteractorImpl()) ;
-
-    }
-
-    @Override
-    protected void onDestroy() {
-        presenter.onDestroy();
-        super.onDestroy();
-    }
-
-    @Override
-    public void onClick(View view) {
-
-        presenter.validateCredencials(usuario.getText().toString(),password.getText().toString());
+        presenter = new LoginPresenterImpl(this);
 
     }
 
@@ -48,36 +35,39 @@ public class LoginActivity extends Activity implements LoginView, View.OnClickLi
     public void showProgress() {
 
         progressBar.setVisibility(View.VISIBLE);
-
     }
 
     @Override
     public void hideProgress() {
 
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void setErrorUser() {
+
+        editUser.setError("Campo Obligatorio");
 
     }
 
     @Override
-    public void setUserNameError() {
+    public void setErrorPassword() {
 
-        usuario.setError("error de usuario");
+        editPass.setError("Campo Obligatorio");
 
     }
 
     @Override
-    public void setPasswordError() {
+    public void navigationToHome() {
 
-        password.setError("error de password");
+      Intent intent = new Intent(this,HomeActivity.class);
+      startActivity(intent);
 
     }
 
+    //metodo click
+    public void validacion(View v){
 
-    @Override
-    public void navigateToHome() {
-
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-
+        presenter.validateusuario(editUser.getText().toString(),editPass.getText().toString());
     }
 }
