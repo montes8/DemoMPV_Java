@@ -9,9 +9,7 @@ public class LoginInteractorImpl implements LoginInteractor {
     @Override
     public void validateUser(final String user, final String password, final OnLoginFinishListener listener) {
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+
                 if(!user.equals("") && !password.equals("")){
 
                     listener.exitOperacion();
@@ -25,7 +23,7 @@ public class LoginInteractorImpl implements LoginInteractor {
                         }
                     }
                 }
-            }
-        },15000);
+            
+
     }
 }
