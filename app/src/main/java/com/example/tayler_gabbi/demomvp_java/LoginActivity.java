@@ -7,11 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-import com.example.tayler_gabbi.demomvp_java.R;
-import com.example.tayler_gabbi.demomvp_java.interfaces.LoginPresenter;
-import com.example.tayler_gabbi.demomvp_java.interfaces.LoginView;
-import com.example.tayler_gabbi.demomvp_java.presenter.LoginPresenterImpl;
-
 public class LoginActivity extends AppCompatActivity implements LoginView{
 
     EditText editPass,editUser;
