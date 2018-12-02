@@ -15,22 +15,14 @@ public class PresenterImpl implements LoginPresenter {
     }
 
     @Override
-    public void perfomLogin(final String userName, final String password,ConexionSQLiteHelper conn) {
+    public void perfomLogin(final String userName, final String password) {
 
         if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)){
 
             loginView.loginValidations();
 
         }else {
-
-            if(conn.userLogin(userName,password)){
-
                 loginView.loginSuccess();
-            }else {
-
-                loginView.loginError();
-            }
-
                 }
     }
 

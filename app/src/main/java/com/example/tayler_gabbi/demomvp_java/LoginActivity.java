@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
-public class LoginActivity extends AppCompatActivity implements LoginView{
+import com.example.tayler_gabbi.demomvp_java.model.PresenterImpl;
+import com.example.tayler_gabbi.demomvp_java.presenter.LoginPresenter;
+import com.example.tayler_gabbi.demomvp_java.view.LoginView;
+
+public class LoginActivity extends AppCompatActivity implements LoginView {
 
     EditText editPass,editUser;
     ProgressBar progressBar;
@@ -22,47 +26,23 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         editPass = findViewById(R.id.edit_pasword);
         progressBar = findViewById(R.id.progressBar);
 
-        presenter = new LoginPresenterImpl(this);
+        presenter = new PresenterImpl(this);
+
+    }
+
+
+    @Override
+    public void loginValidations() {
 
     }
 
     @Override
-    public void showProgress() {
-
-        progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void hideProgress() {
-
-        progressBar.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void setErrorUser() {
-
-        editUser.setError("Campo Obligatorio");
+    public void loginSuccess() {
 
     }
 
     @Override
-    public void setErrorPassword() {
+    public void loginError() {
 
-        editPass.setError("Campo Obligatorio");
-
-    }
-
-    @Override
-    public void navigationToHome() {
-
-      Intent intent = new Intent(this,HomeActivity.class);
-      startActivity(intent);
-
-    }
-
-    //metodo click
-    public void validacion(View v){
-
-        presenter.validateusuario(editUser.getText().toString(),editPass.getText().toString());
     }
 }
