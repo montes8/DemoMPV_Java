@@ -1,27 +1,40 @@
 package com.example.tayler_gabbi.demomvp_java.database;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Generated;
 
-@Entity
+@Entity(nameInDb = "DATABASE_DEMO")
 public class Usuario {
-    @PrimaryKey(autoGenerate = true)
-    private Long idUsu;
+    @Id(autoincrement = true)
+    private Long id ;
 
+    @Property(nameInDb = "nombre")
     private String nombre;
+
+    private String usuario;
+
     private String contrasenia;
 
-    public Usuario( String nombre, String contrasenia) {
+    @Generated(hash = 1324576134)
+    public Usuario(Long id, String nombre, String usuario, String contrasenia) {
+        this.id = id;
         this.nombre = nombre;
+        this.usuario = usuario;
         this.contrasenia = contrasenia;
     }
 
-    public Long getIdUsu() {
-        return idUsu;
+    @Generated(hash = 562950751)
+    public Usuario() {
     }
 
-    public void setIdUsu(Long idUsu) {
-        this.idUsu = idUsu;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -32,11 +45,29 @@ public class Usuario {
         this.nombre = nombre;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getContrasenia() {
         return contrasenia;
     }
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", usuario='" + usuario + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                '}';
     }
 }
