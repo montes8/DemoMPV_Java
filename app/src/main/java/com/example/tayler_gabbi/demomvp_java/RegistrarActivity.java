@@ -1,11 +1,13 @@
 package com.example.tayler_gabbi.demomvp_java;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.tayler_gabbi.demomvp_java.model.PresenterImpl;
 import com.example.tayler_gabbi.demomvp_java.model.PresenterRegistrarImpl;
@@ -45,25 +47,40 @@ public class RegistrarActivity extends AppCompatActivity implements RegistrarVie
     @Override
     public void registrarSuccess() {
 
+        Intent intent = new Intent(this,HomeActivity.class);
+        startActivity(intent);
+        Toast.makeText(this,"usuario registrado",Toast.LENGTH_LONG).show();
+
+
     }
 
     @Override
     public void nameError() {
+        Toast.makeText(this,"Ingrese nombre",Toast.LENGTH_LONG).show();
 
     }
 
     @Override
     public void usuarioError() {
 
+
+        Toast.makeText(this,"Ingrese nombre de usuario",Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     public void passwordError() {
 
+
+        Toast.makeText(this,"Ingrese  Contraseña",Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     public void registerError() {
+
+
+        Toast.makeText(this,"usuario no guardado",Toast.LENGTH_LONG).show();
 
     }
 }
