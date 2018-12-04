@@ -21,7 +21,7 @@ public class PresenterImpl implements LoginPresenter {
     }
 
     @Override
-    public void perfomLogin(final String userName, final String password, UsuarioDao usuarioDao) {
+    public void perfomLogin( String userName, String password, UsuarioDao usuarioDao) {
 
         if(TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)){
 
@@ -29,7 +29,7 @@ public class PresenterImpl implements LoginPresenter {
 
         }else {
 
-                    ArrayList<Usuario> listaUsuario = (ArrayList<Usuario>) usuarioDao.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(userName)).list();
+            ArrayList<Usuario> listaUsuario = (ArrayList<Usuario>) usuarioDao.queryBuilder().where(UsuarioDao.Properties.Usuario.eq(userName)).list();
 
                     if(listaUsuario!= null && listaUsuario.size() > 0) {
 
@@ -38,7 +38,7 @@ public class PresenterImpl implements LoginPresenter {
                     } else {
 
                         loginView.loginError();
-                  }
+                    }
                 }
     }
 

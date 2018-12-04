@@ -17,7 +17,7 @@ import com.example.tayler_gabbi.demomvp_java.view.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
-    EditText editPass,editUser;
+    private EditText editPass,editUser;
     private LoginPresenter presenter;
     private Button logearse;
     private UsuarioDao usuarioDao;
@@ -32,7 +32,17 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         editPass = findViewById(R.id.edit_pasword);
         logearse = findViewById(R.id.button_ingresar);
 
+        usuarioDao = ((DemoApplication)getApplication()).getDaoSession().getUsuarioDao();
+
         presenter = new PresenterImpl(this);
+
+        logearse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                presenter.perfomLogin(editUser.getText().toString(),editPass.getText().toString(),usuarioDao);
+            }
+        });
 
     }
 
